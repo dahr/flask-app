@@ -1,15 +1,16 @@
 {
- "poll": "Champion League Winner",
- "question": "Who will win the Champion League?",
- "options": [ "Juventus",
-              "Milan",
-              "Inter",
-              "Barcelona",
-              "Real Madrid",
-              "Manchester City",
-              "Arsenal",
-              "Bayern Munich",
-              "Borussia Dortmund",
-              "Other team"
+ "poll": "NCAA Men's Basketball Championship",
+ "question": "Who will win the NCAA Men's Basketball Championship",
+ "options": [ "Virginia",
+              "N. Carolina",
+              "Kentucky",
+              "Gonzaga",
+              "Tennessee",
+              "LSU",
+              "Duke",
+              "Michigan St.",
+              "Purdue",
+              "Houston",
+              "Other"
             ]
 }
