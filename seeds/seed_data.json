@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "poll": "NCAA Men's Basketball Championship",
   "question": "Who will win the NCAA Men's Basketball Championship",
   "options": [ "Virginia",
@@ -11,24 +10,7 @@
                "Duke",
                "Michigan St.",
                "Purdue",
-               "Texas Tech",
+               "Houston",
                "Other"
              ]
  }
-=======
- "poll": "NCAA Men's Basketball Championship",
- "question": "Who will win the NCAA Men's Basketball Championship",
- "options": [ "Virginia",
-              "N. Carolina",
-              "Kentucky",
-              "Gonzaga",
-              "Tennessee",
-              "LSU",
-              "Duke",
-              "Michigan St.",
-              "Purdue",
-              "Houston",
-              "Other"
-            ]
-}
->>>>>>> ea4484bc4bad5f2b16c3045e4fd84f0837df137a
