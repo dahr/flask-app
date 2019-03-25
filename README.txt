@@ -1,4 +1,4 @@
-# flask-vote-app
+# flask-vote-app - poll app
 A sample web poll application written in Python (Flask).
 Users will be prompted with a poll question and related options. They can vote preferred option(s) and see poll results as a chart. Poll results are then loaded into an internal DB based on sqlite. As alternative, the application can store poll results in an external MySQL database.
 
