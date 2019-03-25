@@ -3,10 +3,10 @@ node {
   stage('Clone repository') {
     checkout scm
   }
-  stage('Build voting app image') {
-    img = docker.build('dockersamples/voting_app', './')
+  stage('Build image') {
+    img = docker.build('dockersamples/voting_app', '.')
   }
-  stage('Push voting app image') {
+  stage('Push image') {
     docker.withRegistry('https://dell-harbor.dell.ecore.af.smil.mil', 'harbor-credentials') {
     img.push()
     }
