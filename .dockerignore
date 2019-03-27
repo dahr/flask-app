@@ -1,0 +1,9 @@
+.git
+Dockerfile
+README.md
+README.txt
+Jenkinsfile
+
+# To prevent storing dev/temporary container data
+*.csv
+/tmp/*
