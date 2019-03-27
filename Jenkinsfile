@@ -12,9 +12,9 @@ node {
     }
     withEnv(['DOCKER_CONTENT_TRUST=1']){
     stage('Push image') {
-      docker.withRegistry('https://dell-harbor.dell.ecore.af.smil.mil', 'harbor-credentials') {
-      img.push()
-      sh 'whoami'
+      sh 'docker tag sdtf/vote_app:latest dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
+      sh 'docker login dell-harbor.dell.ecore.af.smil.mil'
+      sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
       }
     }
   }
