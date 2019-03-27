@@ -8,8 +8,7 @@ node {
       checkout scm
     }
     stage('Build image') {
-      sh 'printenv'
-      img = docker.build('sdtf/vote_app', '.')
+      img = docker.build('sdtf/vote_app:latest', '.')
     }
     stage('Push image') {
       docker.withRegistry('https://dell-harbor.dell.ecore.af.smil.mil', 'harbor-credentials') {
