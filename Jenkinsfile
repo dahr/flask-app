@@ -12,6 +12,7 @@ node {
     }
     withEnv(['DOCKER_CONTENT_TRUST=1']){
     stage('Push image') {
+      sh 'whoami'
       docker.withRegistry('https://dell-harbor.dell.ecore.af.smil.mil', 'harbor-credentials') {
       img.push()
       }
