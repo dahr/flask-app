@@ -11,20 +11,20 @@ node {
       img = docker.build('sdtf/vote_app:latest', '.')
     }
     withEnv(['DOCKER_CONTENT_TRUST=1']){
-    stage('Push image') {
-      sh 'docker tag sdtf/vote_app:latest dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
-      sh 'docker login dell-harbor.dell.ecore.af.smil.mil'
-      sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
-      }
+      stage('Push image') {
+        sh 'docker tag sdtf/vote_app:latest dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
+        sh 'docker login dell-harbor.dell.ecore.af.smil.mil'
+        sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
+        }
     }
     withCredentials([usernamePassword(credentialsId: 'pksAccess', passwordVariable: 'USERPASS')]){
-    withEnv(["PKS_USER_PASSWORD=$USERPASS"]){
-    stage('Set k8s image') {
-      sh '''pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p "$USERPASS"'''
-      def creds = sh 'pks get-credentials VoteApp'
-      echo "$creds"
+      withEnv(["PKS_USER_PASSWORD=$USERPASS"]){
+        stage('Set k8s image') {
+          sh 'pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p "$USERPASS"'
+          def creds = sh 'pks get-credentials VoteApp'
+          echo "$creds"
+          }
       }
-    }
   }
 }
 }
