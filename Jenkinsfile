@@ -3,8 +3,7 @@ node {
   "DOCKER_CONTENT_TRUST_SERVER=${ContentTrustServerURL}",
   "DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${ContentTrustRootPassphrase}",
   "DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=${ContentTrustRepoPassphrase}"]){
-    def img
-    def PASSWORD
+    def image
     stage('Clone repository') {
       checkout scm
     }
@@ -20,7 +19,7 @@ node {
     }
     withCredentials([usernamePassword(credentialsId: 'pksAccess', passwordVariable: 'PASSWORD')]){
       stage('Set k8s image') {
-        //sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p '$PASSWORD'"
+        sh '''pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p "$PASSWORD"'''
         withEnv(["PKS_USR_PASSWORD=$PASSWORD"]){
         def creds = sh 'pks get-credentials VoteApp'
         echo "$creds"
