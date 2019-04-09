@@ -8,13 +8,13 @@ node {
       checkout scm
     }
     stage('Build image') {
-      img = docker.build('sdtf/vote_app:latest', '.')
+      img = docker.build("sdtf/vote_app:$BUILD_ID", '.')
     }
     withEnv(['DOCKER_CONTENT_TRUST=1']){
       stage('Push image') {
-        sh 'docker tag sdtf/vote_app:latest dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
+        sh "docker tag sdtf/vote_app:latest dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID"
         sh 'docker login dell-harbor.dell.ecore.af.smil.mil'
-        sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
+        sh "docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID"
         }
     }
     stage('Set k8s image') {
@@ -23,7 +23,7 @@ node {
                 contextName: 'VoteApp',
                 clusterName: 'VoteApp'
                 ]) {
-        sh "kubectl set image deployment voting-app voting-app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest -n default --record=true"
+        sh "kubectl set image deployment voting-app voting-app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID -n default --record=true"
     }
     }
   }
