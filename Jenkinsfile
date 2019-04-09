@@ -23,7 +23,7 @@ node {
       //withEnv(["PKS_USR_PASSWORD=$CREDS_PSW"]){
       //def creds = sh 'pks get-credentials VoteApp'
       //echo "$creds"
-      }
+      //}
     }
   }
 }
