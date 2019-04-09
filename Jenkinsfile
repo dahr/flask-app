@@ -18,7 +18,7 @@ node {
         }
     }
     withCredentials([usernamePassword(credentialsId: 'pksAccess', passwordVariable: 'USERPASS')]){
-      def pw = "${USERPASS}"
+      //def pw = "${USERPASS}"
       /*withEnv(["PKS_USER_PASSWORD=${pw}"]){
         stage('Set k8s image') {
           sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p '${pw}'"
