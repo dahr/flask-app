@@ -22,8 +22,8 @@ node {
         echo "password is $PASSWORD"
         sh "pks login -a api.pks.dell.ecore.af.smil.mil -u $USERNAME -k -p $PASSWORD"
         withEnv(["PKS_USER_PASSWORD=$PASSWORD"]){
-        def creds = sh 'pks get-credentials VoteApp'
-        echo creds
+        sh 'pks get-credentials VoteApp'
+        sh "kubectl set image deployment voting-app app=dell-harbor.dell.ecore.af.smil.mil/library/vote_app:latest -n voting-app --record=true"
         }
       }
     }
