@@ -17,7 +17,7 @@ node {
       sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
       }
     }
-    withCredentials([usernameColonPassword(credentialsId: 'pks-access', variable: 'USERPASS')]){
+    withCredentials([usernameColonPassword(credentialsId: 'pksAccess', variable: 'USERPASS')]){
     withEnv(["PKS_USER_PASSWORD=$USERPASS"]){
     stage('Set k8s image') {
       sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p $USERPASS"
