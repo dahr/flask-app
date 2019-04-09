@@ -23,7 +23,7 @@ node {
                 contextName: 'default',
                 clusterName: 'default'
                 ]) {
-        sh "kubectl set image deployment voting-app voting-app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest -n default --record=true"
+        sh "kubectl set image deployment voting-app voting-app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest -n VoteApp --record=true"
     }
     }
   }
