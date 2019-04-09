@@ -24,6 +24,5 @@ node {
       echo "$creds"
       }
     }
-    }
   }
 }
