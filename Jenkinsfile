@@ -1,7 +1,7 @@
 node {
   def url = '${env.content-trust-server-url}'
   withEnv(['DOCKER_CONTENT_TRUST=0',
-  'DOCKER_CONTENT_TRUST_SERVER="${url}"',
+  'DOCKER_CONTENT_TRUST_SERVER=${env.content-trust-server-url}',
   'DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=VMware1!',
   'DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=VMware1!']){
     def img
