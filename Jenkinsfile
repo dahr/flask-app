@@ -24,8 +24,8 @@ node {
           sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p '${pw}'"
           def creds = sh 'pks get-credentials VoteApp'
           echo "$creds"
-          }*/
-      }
+          }
+      }*/
   }
 }
 }
