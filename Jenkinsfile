@@ -1,6 +1,6 @@
 node {
   withEnv(['DOCKER_CONTENT_TRUST=0',
-  'DOCKER_CONTENT_TRUST_SERVER=${content-trust-server-url}',
+  'DOCKER_CONTENT_TRUST_SERVER=$content-trust-server-url',
   'DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=$docker-content-trust-root-passphrase',
   'DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=$docker-content-trust-repo-passphrase']){
     def img
