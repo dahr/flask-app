@@ -23,7 +23,7 @@ node {
         sh "pks login -a api.pks.dell.ecore.af.smil.mil -u $USERNAME -k -p $PASSWORD"
         withEnv(["PKS_USER_PASSWORD=$PASSWORD"]){
         def creds = sh 'pks get-credentials VoteApp'
-        echo "$creds"
+        echo creds
         }
       }
     }
