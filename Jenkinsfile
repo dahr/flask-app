@@ -1,5 +1,4 @@
 node {
-  echo "URL - $ContentTrustServerURL"
   withEnv(["DOCKER_CONTENT_TRUST=0",
   "DOCKER_CONTENT_TRUST_SERVER=",
   "DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=VMware1!",
@@ -7,6 +6,7 @@ node {
     def img
     stage('Clone repository') {
       checkout scm
+      echo "URL - $ContentTrustServerURL"
     }
     stage('Build image') {
       img = docker.build('sdtf/vote_app:latest', '.')
