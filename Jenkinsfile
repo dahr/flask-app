@@ -18,13 +18,13 @@ node {
         }
     }
     withCredentials([string(credentialsId: 'pksAccess', passwordVariable: 'USERPASS')]){
-      withEnv(["PKS_USER_PASSWORD=$USERPASS"]){
-        stage('Set k8s image') {
-          sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p '$USERPASS'"
-          def creds = sh 'pks get-credentials VoteApp'
-          echo "$creds"
-          }
+      stage('Set k8s image') {
+        sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p '$USERPASS'"
+        withEnv(["PKS_USR_PASSWORD=$USERPASS"]){
+        def creds = sh 'pks get-credentials VoteApp'
+        echo "$creds"
+        }
       }
+    }
   }
-}
 }
