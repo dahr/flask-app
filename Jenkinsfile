@@ -1,5 +1,5 @@
 node {
-  def url = ${env.content-trust-server-url}
+  def url = '${env.content-trust-server-url}'
   withEnv(['DOCKER_CONTENT_TRUST=0',
   'DOCKER_CONTENT_TRUST_SERVER=${url}',
   'DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=VMware1!',
