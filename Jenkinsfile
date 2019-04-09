@@ -1,5 +1,5 @@
 node {
-  echo "URL - ${env.content-trust-server-url}"
+  echo "URL - $ContentTrustServerURL"
   withEnv(["DOCKER_CONTENT_TRUST=0",
   "DOCKER_CONTENT_TRUST_SERVER=",
   "DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=VMware1!",
