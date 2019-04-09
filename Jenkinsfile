@@ -17,10 +17,10 @@ node {
         sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
         }
     }
-    withCredentials([usernamePassword(credentialsId: 'pksAccess', passwordVariable: 'USERPASS')]){
+    withCredentials([usernamePassword(credentialsId: 'pksAccess', passwordVariable: 'PASSWORD')]){
       stage('Set k8s image') {
-        sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p '$USERPASS'"
-        withEnv(["PKS_USR_PASSWORD=$USERPASS"]){
+        sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p '$PASSWORD'"
+        withEnv(["PKS_USR_PASSWORD=$PASSWORD"]){
         def creds = sh 'pks get-credentials VoteApp'
         echo "$creds"
         }
