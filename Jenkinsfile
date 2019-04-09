@@ -4,6 +4,7 @@ node {
   "DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${ContentTrustRootPassphrase}",
   "DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=${ContentTrustRepoPassphrase}"]){
     def img
+    def accessKey = credentials('pks-access-key')
     stage('Clone repository') {
       checkout scm
     }
@@ -17,9 +18,9 @@ node {
       sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
       }
     }
-    withEnv(["PKS_USER_PASSWORD=${PKSLoginPassword}"]){
+    withEnv(["PKS_USER_PASSWORD=${accessKey}"]){
     stage('Set k8s image') {
-      sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p ${PKSLoginPassword}"
+      sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p ${accessKey}"
       def creds = sh 'pks get-credentials VoteApp'
       echo "$creds"
       }
