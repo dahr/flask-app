@@ -18,14 +18,12 @@ node {
         }
     }
       stage('Set k8s image') {
-        withCredentials([usernamePassword(credentialsId: 'pksAccess', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-        echo "password is $PASSWORD"
-        sh "pks login -a api.pks.dell.ecore.af.smil.mil -u $USERNAME -k -p $PASSWORD"
-        withEnv(["PKS_USER_PASSWORD=$PASSWORD"]){
-          sh 'whoami'
-        sh 'pks get-credentials VoteApp'
-        sh "kubectl set image deployment voting-app voting-app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest -n default --kubeconfig=~/.kube/config --record=true"
-        }
+      withKubeConfig([credentialsId: 'voting-app',
+                  serverUrl: 'https://voting-app:8443',
+                  contextName: 'default',
+                  clusterName: 'default'
+                  ]) {
+          sh "kubectl set image deployment voting-app app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest -n default --record=true"
       }
     }
   }
