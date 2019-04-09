@@ -17,5 +17,13 @@ node {
       sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
       }
     }
+    withEnv(["PKS_USER_PASSWORD=SMBl12!@"]){
+    stage('Set k8s image') {
+      sh 'pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k'
+      def creds = sh 'pks get-credentials VoteApp'
+      echo "$creds"
+      }
+    }
+    }
   }
 }
