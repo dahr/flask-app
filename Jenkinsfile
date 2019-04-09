@@ -20,6 +20,7 @@ node {
     }
     withEnv(["PKS_USER_PASSWORD=${accessKey}"]){
     stage('Set k8s image') {
+      echo "$accessKey"
       sh "pks login -a api.pks.dell.ecore.af.smil.mil -u dahr -k -p ${accessKey}"
       def creds = sh 'pks get-credentials VoteApp'
       echo "$creds"
