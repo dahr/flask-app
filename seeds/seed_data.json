@@ -1,16 +1,12 @@
 {
-  "poll": "NCAA Men's Basketball Championship",
-  "question": "Who will win the NCAA Men's Basketball Champ?",
-  "options": [ "Virginia",
-               "N. Carolina",
-               "Kentucky",
-               "Gonzaga",
-               "Tennessee",
-               "LSU",
-               "Duke",
-               "Michigan St.",
-               "Purdue",
-               "Houston",
-               "Other"
+  "poll": "Favorite Star Trek Character",
+  "question": "Who's your favorite Star Trek Character?",
+  "options": [ "Kirk",
+               "Spock",
+               "Uhura",
+               "McCoy",
+               "Scotty",
+               "Chekov",
+               "Sulu"
              ]
  }
