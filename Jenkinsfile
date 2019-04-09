@@ -21,7 +21,7 @@ node {
         withCredentials([usernamePassword(credentialsId: 'pksAccess', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
         echo "password is $PASSWORD"
         sh "pks login -a api.pks.dell.ecore.af.smil.mil -u $USERNAME -k -p $PASSWORD"
-        withEnv(["PKS_USR_PASSWORD=SMBl12!@"]){
+        withEnv(["PKS_USR_PASSWORD=SMBl12\!@"]){
         def creds = sh 'pks get-credentials VoteApp'
         echo "$creds"
         }
