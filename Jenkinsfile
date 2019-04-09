@@ -17,14 +17,14 @@ node {
         sh 'docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest'
         }
     }
-      stage('Set k8s image') {
-      withKubeConfig([credentialsId: 'voting-app',
-                  serverUrl: 'https://voting-app:8443',
-                  contextName: 'default',
-                  clusterName: 'default'
-                  ]) {
-          sh "kubectl set image deployment voting-app app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest -n default --record=true"
-      }
+    stage('Set k8s image') {
+    withKubeConfig([credentialsId: 'voting-app',
+                serverUrl: 'https://voting-app:8443',
+                contextName: 'default',
+                clusterName: 'default'
+                ]) {
+        sh "kubectl set image deployment voting-app voting-app=dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:latest -n default --record=true"
+    }
     }
   }
 }
