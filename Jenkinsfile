@@ -12,7 +12,7 @@ node {
     }
     withEnv(['DOCKER_CONTENT_TRUST=1']){
       stage('Push image') {
-        sh "docker tag sdtf/vote_app:latest dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID"
+        sh "docker tag sdtf/vote_app:$BUILD_ID dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID"
         sh 'docker login dell-harbor.dell.ecore.af.smil.mil'
         sh "docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID"
         }
