@@ -4,6 +4,7 @@ node {
   "DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${ContentTrustRootPassphrase}",
   "DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=${ContentTrustRepoPassphrase}"]){
     def img
+    def PASSWORD
     stage('Clone repository') {
       checkout scm
     }
