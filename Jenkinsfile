@@ -15,7 +15,7 @@ node {
         sh "docker tag sdtf/vote_app:$BUILD_ID dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID"
         sh 'docker login dell-harbor.dell.ecore.af.smil.mil'
         sh "docker push dell-harbor.dell.ecore.af.smil.mil/sdtf/vote_app:$BUILD_ID"
-        sh "curl -H 'Accept: application/json, text/plain' -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46Vk13YXJlMSE=' -X POST https://dell-harbor.dell.ecore.af.smil.mil/api/repositories/sdtf/vote_app/tags/121/scan"
+        //sh "curl -H 'Accept: application/json, text/plain' -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46Vk13YXJlMSE=' -X POST https://dell-harbor.dell.ecore.af.smil.mil/api/repositories/sdtf/vote_app/tags/121/scan"
         }
     }
     stage('Set k8s image') {
