@@ -17,6 +17,7 @@ node {
                 serverUrl: 'https://my-cluster.corp.local:8443',
                 contextName: 'my-cluster',
                 clusterName: 'my-cluster'
+                namespace:  "demo"
                 ]) {
         sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n default --record=true"
     }
