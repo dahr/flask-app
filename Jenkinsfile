@@ -1,16 +1,15 @@
 node {
     def img
     stage('Clone repository') {
-      sh "echo cloning"
       checkout scm
     }
-    stage('Build image') {
-      img = docker.build("demo/demo-app:$BUILD_ID", '.')
-    }
-    stage('Push image') {
-      sh "docker tag demo/demo-app:$BUILD_ID harbor.corp.local/demo/demo-app:$BUILD_ID"
-      sh 'docker login harbor.corp.local'
-      sh "docker push harbor.corp.local/demo/demo-app:$BUILD_ID"
+    stage('Build & push image') {
+      docker.withRegistry('https://harbor.corp.local', 'harbor-creds') {
+
+      def customImage = docker.build("demo/demo-app:$BUILD_ID", '.')
+
+      /* Push the container to the custom Registry */
+      customImage.push()
       }
     stage('Set k8s image') {
     withKubeConfig([credentialsId: 'demo-app',
