@@ -13,13 +13,14 @@ node {
       }
     }
     stage('Set k8s image') {
-    withKubeConfig([credentialsId: 'demo',
+    withKubeConfig([credentialsId: 'demo-app',
                 serverUrl: 'https://my-cluster.corp.local:8443',
                 contextName: 'my-cluster',
                 clusterName: 'my-cluster',
                 namespace:  "demo"
                 ]) {
-        sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n demo --record=true"
+        //sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n demo --record=true"
+        sh "kubectl get pods"
     }
   }
 }
