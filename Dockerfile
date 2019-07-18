@@ -3,7 +3,7 @@ FROM python:2.7
 
 LABEL Version 1.0
 
-MAINTAINER kalise <https://github.com/kalise/>
+MAINTAINER dahr <https://github.com/dahr/>
 
 # By default, the app uses an internal sqlite db
 # Use env variable to force an external SQL engine, e.g. MySQL
