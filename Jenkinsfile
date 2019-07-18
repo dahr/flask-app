@@ -19,8 +19,7 @@ node {
                 clusterName: 'my-cluster',
                 namespace:  "demo"
                 ]) {
-        //sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n demo --record=true"
-        sh "kubectl get pods"
+        sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n demo --record=true"
     }
   }
 }
