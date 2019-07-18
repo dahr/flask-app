@@ -1,6 +1,7 @@
 node {
     def img
     stage('Clone repository') {
+      sh "echo cloning"
       checkout scm
     }
     stage('Build image') {
