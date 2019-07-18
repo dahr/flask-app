@@ -1,5 +1,5 @@
 node {
-    def image
+    def img
     stage('Clone repository') {
       checkout scm
     }
