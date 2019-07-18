@@ -20,6 +20,7 @@ node {
                 namespace:  "demo"
                 ]) {
         sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n demo --record=true"
+        sh "curl -H 'Accept: application/json, text/plain' -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46Vk13YXJlMSE=' -X POST 'https://harbor.corp.local/api/repositories/demo/demo-app/tags/$BUILD_ID/scan'"
     }
   }
 }
