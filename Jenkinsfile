@@ -13,7 +13,7 @@ node {
       }
     }
     stage('Set k8s image') {
-    withKubeConfig([credentialsId: 'config',
+    withKubeConfig([credentialsId: 'demo',
                 serverUrl: 'https://my-cluster.corp.local:8443',
                 contextName: 'my-cluster',
                 clusterName: 'my-cluster'
