@@ -11,6 +11,7 @@ node {
       /* Push the container to the custom Registry */
       customImage.push()
       }
+    }
     stage('Set k8s image') {
     withKubeConfig([credentialsId: 'demo-app',
                 serverUrl: 'https://my-cluster.corp.local:8443',
