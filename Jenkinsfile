@@ -19,7 +19,7 @@ node {
                 clusterName: 'my-cluster',
                 namespace:  "demo"
                 ]) {
-        sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n default --record=true"
+        sh "kubectl set image deployment demo-app demo-app=harbor.corp.local/demo/demo-app:$BUILD_ID -n demo --record=true"
     }
   }
 }
