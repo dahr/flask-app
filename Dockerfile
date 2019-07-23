@@ -5,15 +5,6 @@ LABEL Version 1.0
 
 MAINTAINER dahr <https://github.com/dahr/>
 
-# By default, the app uses an internal sqlite db
-# Use env variable to force an external SQL engine, e.g. MySQL
-# ENV DB_TYPE "mysql"
-# ENV DB_HOST "localhost"
-# ENV DB_PORT "3306"
-# ENV DB_NAME "votedb"
-# ENV DB_USER "user"
-# ENV DB_PASS "password"
-
 # Set the application directory
 WORKDIR /app
 
